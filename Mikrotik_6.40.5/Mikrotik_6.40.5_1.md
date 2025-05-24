@@ -53,4 +53,4 @@ send_netbios_name_query("192.168.72.140")  # Replace with your RouterOS IP
 
 ## 3.Exploitation Principle
 
-在sub_8060430函数中会产生溢出，导致返回值
+A buffer overflow occurs in the sub_8060430 function, causing the return address to be overwritten. The overflow happens within the sub_8054607 function. Upon examining the function, we can see that due to the presence of a while loop, the loop only exits when v2 becomes 0; otherwise, it continuously copies data from a2 to a1.
