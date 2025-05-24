@@ -55,4 +55,9 @@ send_netbios_name_query("192.168.72.140")  # Replace with your RouterOS IP
 
 A buffer overflow occurs in the sub_8060430 function, causing the return address to be overwritten. The overflow happens within the sub_8054607 function. Upon examining the function, we can see that due to the presence of a while loop, the loop only exits when v2 becomes 0; otherwise, it continuously copies data from a2 to a1.
 ![image](https://github.com/user-attachments/assets/00ea7384-5e73-414e-90bc-d1306a48be00)
+Tracing back, we find that the a3 argument is actually a stack address passed from the previous function, meaning it has limited space. However, in the sub_8054607 function, there is no restriction on the range of memory being written to, which results in a stack overflow.To trigger the sub_8054607 function, the UDP payload must be longer than 49 bytes. Although a subsequent qmemcpy limits the amount of data copied from the received UDP packet, the sub_8054607 function itself lacks such bounds checking.
+![image](https://github.com/user-attachments/assets/0be3a610-bc57-4fff-8abf-876ee329e922)
+
+
+
 
