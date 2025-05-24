@@ -103,6 +103,10 @@ Finally, there will be a combination that overwrites the return value of the upp
 ![image](https://github.com/user-attachments/assets/f2e59d8b-84fa-4a7c-aa54-0a5c198b4e42)
 ![image](https://github.com/user-attachments/assets/eba41375-edfe-473f-b1d1-bc5362a8a34f)
 
+## 3. Repair suggestions
+Optimize the sub_8054607 function and add a length limit for assignment
+
+
 
 ## 6. Criteria for Determining a 0day Vulnerability
 
